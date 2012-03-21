@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# reads a single column of numeric data from stdin
+# blank lines are ignored
+# prints sum, count, mean, median, minimum, maximum
+
+sort -n |
+awk 'BEGIN{c=0;sum=0;}\
+/^[^#]/{a[c++]=$1;sum+=$1;}\
+END{ave=sum/c;\
+if((c%2)==1){median=a[int(c/2)];}\
+else{median=(a[c/2]+a[c/2-1])/2;}\
+print sum," ",c," ",ave," ",median," ",a[0]," ",a[c-1]}'
