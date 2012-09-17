@@ -1,0 +1,3 @@
+reads a single column of numeric data from stdin
+blank lines are ignored
+prints sum, count, mean, median, minimum, maximum
